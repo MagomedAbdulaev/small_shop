@@ -8,13 +8,14 @@ from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from django.db.models import Sum, F, Case, When
 from django.core.mail import send_mail
+from django.contrib.auth.hashers import check_password
 from .forms import *
 
 
 def home(request):
 
     products = Product.objects.all()
-    paginator = Paginator(products, 2)  # По 2 на каждую страницу
+    paginator = Paginator(products, 4)  # По 4 на каждую страницу
     page_number = request.GET.get('page')  # номер страницы
     page_obj = paginator.get_page(page_number)  # сама страница
     context = {
@@ -66,9 +67,13 @@ def profile(request):
             # Ибо он уникальный. Я использовал фильтр, а не get,
             # Потому что если пользователя нет то будет ошибка,
             # А с фильтром пустой queryset
+
             if user:
-                login(request, user.first())
-                return redirect('shop:profile')
+                if check_password(request.POST['password'], user.first().password):
+                    login(request, user.first())
+                    return redirect('shop:profile')
+                else:
+                    login_form.add_error(None, 'Неверный пароль')
             else:
                 login_form.add_error(None, 'Такой пользователь не найден')
 

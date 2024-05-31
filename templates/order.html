@@ -6,6 +6,7 @@
         {% for product in products %}
             <card class="products__card" data-set-id="{{ product.product.id }}">
                 <a href="{{ product.product.get_absolute_url }}" class="product_card">
+                    <img src="{% static 'images/empty_image.png' %}" alt="Пустая картинка">
                     <h3 class="product_title">{{ product.product.name }}</h3>
                     <div class="cost">
                         {% if product.product.discount_price %}

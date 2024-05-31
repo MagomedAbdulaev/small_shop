@@ -23,9 +23,9 @@ class CharacteristicAdmin(admin.TabularInline):
 
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('user', 'date_created', 'price')
-    list_display_links = ('user', 'date_created', 'price')
-    search_fields = ('name',)
+    list_display = ('user', 'date_created', 'price', 'products')
+    list_display_links = ('user', 'date_created', 'price', 'products')
+    search_fields = ('products',)
 
 
 class ProductAdmin(admin.ModelAdmin):

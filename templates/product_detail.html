@@ -4,6 +4,7 @@
 {% block content %}
     <div class="product_detail">
         <div class="product_info">
+            <img src="{% static 'images/empty_image.png' %}" alt="Пустая картинка">
             <h2 class="product_name">{{ product.name }}</h2>
             <h3 class="product_price">
                 {% if product.discount_price %}
