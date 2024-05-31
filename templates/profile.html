@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {% if not request.user.is_authenticated %}
+        <form action="" method="post" class="form_login">
+            {% csrf_token %}
+            {{ login_form.as_div }}
+            <button type="submit" class="submit_button">Авторизоваться</button>
+        </form>
+    {% else %}
+        <h2 class="name">Добро пожаловать, {{ request.user.username }}</h2>
+        <a href="{% url 'shop:logout' %}" class="logout">Выйти</a>
+    {% endif %}
+{% endblock %}

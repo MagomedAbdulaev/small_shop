@@ -1,0 +1,94 @@
+.wrapper{
+    font-family: 'Arial', sans-serif;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+/* Стилизация полосы прокрутки */
+::-webkit-scrollbar {
+  width: 5px; /* ширина полосы прокрутки */
+}
+
+/* Стилизация ползунка */
+::-webkit-scrollbar-thumb {
+  background-color: #dfe4e9; /* цвет ползунка */
+  border-radius: 6px; /* скругление углов ползунка */
+}
+
+/* Стилизация трека (фон) */
+::-webkit-scrollbar-track {
+  background-color: #fff; /* цвет трека */
+}
+
+:root{
+    --yellow-color: rgb(255, 190, 31);
+    --black-color: rgb(34, 34, 34);
+}
+
+.cart_add,
+.cart_remove{
+    cursor: pointer;
+    background-color: var(--yellow-color);
+    width: 150px;
+    margin: 20px auto;
+    padding: 10px 15px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.cart_remove{
+    background-color: indianred;
+}
+
+.cart_add:hover{
+    background-color: #ffe9b3;
+    transition: background-color 0.15s cubic-bezier(.4,0,.2,1);
+}
+
+.cart_remove:hover{
+    background-color: red;
+}
+
+.main{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.name{
+    font-size: 32px;
+    margin: 40px 0;
+}
+
+.product_added_container{
+    position: fixed;
+    left: 100px;
+    bottom: 100px;
+    z-index: 5;
+    background-color: var(--black-color);
+    border-radius: 6px;
+    padding: 20px 15px;
+    display: none;
+    align-items: center;
+    gap: 40px;
+}
+
+.product_added_container .text{
+    color: rgb(243, 244, 245);
+    font-size: 18px;
+}
+
+.product_added_container .link{
+    padding: 16px 32px;
+    color: #000;
+    background-color: var(--yellow-color);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.product_added_container .link:hover{
+    background-color: #ffe9b3;
+    transition: background-color 0.15s cubic-bezier(.4,0,.2,1);
+}

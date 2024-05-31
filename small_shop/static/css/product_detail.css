@@ -1,0 +1,29 @@
+.product_detail{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.product_detail .product_name{
+    font-size: 24px;
+    color: var(--black-color);
+}
+
+.product_detail .product_price{
+    color: darkcyan;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.product_detail .product_characteristics__list .list__item{
+    display: flex;
+    gap: 2px;
+    margin: 5px 0;
+}
+
+.product_detail .product_characteristics__list .item_characteristic{
+    color: #8f8f8f;
+}

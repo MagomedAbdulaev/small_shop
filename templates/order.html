@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="products">
+        {% for product in products %}
+            <card class="products__card" data-set-id="{{ product.product.id }}">
+                <a href="{{ product.product.get_absolute_url }}" class="product_card">
+                    <h3 class="product_title">{{ product.product.name }}</h3>
+                    <div class="cost">
+                        {% if product.product.discount_price %}
+                            <h3 class="price">
+                                {{ product.product.discount_price }} руб.
+                            </h3>
+                        {% else %}
+                            <h3 class="old_price">{{ product.product.price }} руб.</h3>
+                        {% endif %}
+                    </div>
+                </a>
+                <div class="product_count">
+                    Количество:
+                    <p class="product_count_value">{{ product.count }}</p>
+                </div>
+            </card>
+        {% endfor %}
+    </div>
+    {% if products %}
+        <aside class="order">
+            <form action="" class="order_form" method="post">
+                {% csrf_token %}
+                <input type="submit" class="order_form_submit" value="Оформить заказ">
+            </form>
+        </aside>
+    {% else %}
+        <h1 class="not_found_products">Продуктов в корзине не найдено</h1>
+    {% endif %}
+
+{% endblock %}

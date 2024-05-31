@@ -1,0 +1,28 @@
+.categories__list{
+    margin-top: 40px;
+    display: flex;
+    gap: 60px;
+}
+
+.category_block{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.categories__list .item__link{
+    color: var(--black-color);
+}
+
+.categories__list .subcategories__list{
+    counter-reset: number 0;
+}
+
+.subcategories__list .list__item{
+    counter-increment: number;
+    margin: 5px 0;
+}
+
+.subcategories__list .list__item:before{
+    content: counter(number);
+}

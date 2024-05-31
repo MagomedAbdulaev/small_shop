@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Интернет магазин с товарами">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/categories.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <title>{{ title }}</title>
+</head>
+<body>
+
+<div class="wrapper">
+    {% include 'includes/header.html' %}
+    <main class="main">
+        {% block content %}{% endblock %}
+    </main>
+    <div class="product_added_container">
+        <p class="text">Товар добавлен в корзину</p>
+        <a href="{% url 'shop:cart' %}" class="link">Перейти в корзину</a>
+    </div>
+</div>
+
+<script>
+    let csrf_token = '{{ csrf_token }}';
+</script>
+<script src="{% static 'js/cart.js' %}"></script>
+</body>
+</html>
+

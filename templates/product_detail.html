@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="product_detail">
+        <div class="product_info">
+            <h2 class="product_name">{{ product.name }}</h2>
+            <h3 class="product_price">
+                {% if product.discount_price %}
+                    {{ product.discount_price }} руб.
+                {% else %}
+                    {{ product.price }} руб.
+                {% endif %}
+            </h3>
+        </div>
+        <ul class="product_characteristics__list">
+            {% for item in product.characteristicvalue_set.all %}
+                <li class="list__item">
+                    <p class="item_characteristic">{{ item.characteristic }}:</p>
+                    <p class="item_value">{{ item.value }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+{% endblock %}

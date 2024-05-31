@@ -1,0 +1,27 @@
+.form_login{
+    max-width: 800px;
+    margin: 50px auto;
+}
+
+.form_login .form-input{
+    outline: none;
+    border: none;
+    background-color: #ffe9b3;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.form_login .form-input:user-invalid{
+    outline: 1px solid crimson;
+}
+
+.form_login .form-input,
+.form_login .submit_button{
+    margin: 20px 0;
+}
+
+.form_login .errorlist{
+    color: crimson;
+    margin: 10px 0;
+}
